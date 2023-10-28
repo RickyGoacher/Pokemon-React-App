@@ -6,7 +6,7 @@ const Types = props => {
 
     const generatetTypes = currentTypes.map(currentType => {
         return (
-            <span key={currentType["type"]["name"]}>{currentType["type"]["name"]}</span>
+            <span key={currentType["type"]["name"]} className={classes[currentType["type"]["name"]]}>{currentType["type"]["name"]}</span>
         )
     })
 

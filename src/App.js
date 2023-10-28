@@ -1,37 +1,18 @@
-import {useState, useEffect} from "react";
-
-import PokemonListItem from "./components/PokemonList/PokemonListItem";
+import { Routes, Route } from 'react-router-dom';
+import PokemonListingPage from "./Pages/PokemonListingPage";
+import PokemonDisplayPage from "./Pages/PokemonDisplayPage";
+import FourZeroFour from './Pages/404';
 
 function App() {
 
-  useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon").then(response => response.json())
-    .then(data => {
-      console.log(data);
-      setPokemon(data);
-      setHasResultReturned(true);
-    }).catch(error => {
-      console.error(error)
-      setHasResultReturned(false);
-    });
-
-  }, []);
-
-  const [getPokemon, setPokemon] = useState();
-  const [hasResultReturned, setHasResultReturned] = useState(false);
-  let pokemonList;
-
-  console.log(hasResultReturned)
-
-  if(hasResultReturned) {
-    pokemonList = getPokemon["results"].map(pokemon => {
-      return <PokemonListItem name={pokemon.name} url={pokemon.url} />
-    });
-  }
-
   return (
     <div className="App">
-      {pokemonList}
+      <Routes>
+        <Route path="/" element={<PokemonListingPage />} />
+        <Route path="/page/:num" element={<PokemonListingPage />} />
+        <Route path="/pokemon/:id" element={<PokemonDisplayPage />} />
+        <Route path="*" element={<FourZeroFour />} />
+      </Routes>
     </div>
   );
 }

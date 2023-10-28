@@ -1,0 +1,23 @@
+.stats-container {
+    border-bottom: solid 2px black;
+}
+
+.stats-container h2 {
+    text-align: center;
+}
+
+.stats-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.stats-wrapper .stat {
+    padding: 1rem;
+    background-color: #284B63;
+    color: white;
+    text-transform: capitalize;
+}

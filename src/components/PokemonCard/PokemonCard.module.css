@@ -1,0 +1,17 @@
+.main-title {
+    border-bottom: solid 2px black;
+}
+
+.main-title h1 {
+    text-align: center;
+    font-size: 48px;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+
+.artwork-section {
+    display: flex;
+    flex-direction: row;
+    border-bottom: solid 2px black;
+    justify-content: center;
+}

@@ -1,0 +1,16 @@
+.abilities-section {
+    border-bottom: solid 2px black;
+}
+
+.abilities-section h2 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.abilities-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 2rem;
+}

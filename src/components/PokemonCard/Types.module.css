@@ -1,0 +1,14 @@
+.types-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.types-wrapper span {
+    padding: .5rem;
+    color: white;
+    text-transform: capitalize;
+    background-color: #284B63;
+}

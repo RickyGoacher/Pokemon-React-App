@@ -1,13 +1,15 @@
 import {useState, useEffect} from "react";
 import classes from "./PokemonListingPage.module.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import PokemonListItem from "../Components/PokemonList/PokemonListItem";
 
 const PokemonListingPage = (props) => {
 
-    const { num } = useParams();
+    const navigate = useNavigate();
 
-    const [getCurrentPage, setCurrentPage] = useState("https://pokeapi.co/api/v2/pokemon?offset=0&limit=20");
+    const { num } = useParams(0);
+
+    const [getCurrentPage, setCurrentPage] = useState(`https://pokeapi.co/api/v2/pokemon?offset=${20*num}&limit=20`);
 
     useEffect(() => {
 
@@ -29,6 +31,10 @@ const PokemonListingPage = (props) => {
     
     }, [getCurrentPage, num]);
 
+    let pageNumber = getCurrentPage.match(/\d+(?=&)/g) / 20;
+
+    console.log(pageNumber, ' page number')
+
     const [getPokemon, setPokemon] = useState();
     const [hasResultReturned, setHasResultReturned] = useState(false);
     let pokemonList;
@@ -44,19 +50,21 @@ const PokemonListingPage = (props) => {
     function getPrevious() {
         if(getPokemon["previous"] !== null) {
             setCurrentPage(getPokemon["previous"]);
+            navigate(`/page/${pageNumber - 1}`);
         }
     }
 
     function getNext() {
         if(getPokemon["next"] !== null) {
             setCurrentPage(getPokemon["next"]);
+            navigate(`/page/${pageNumber + 1}`);
         }
     }
 
     return (
        <div className={classes["pokemon-list-container"]}>
        {pokemonList}
-       <div>
+       <div className={classes["button-container"]}>
         <button onClick={getPrevious}>Prev</button>
         <button onClick={getNext}>Next</button>
        </div>

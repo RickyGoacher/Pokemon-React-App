@@ -1,5 +1,6 @@
 .abilities-section {
-    border-bottom: solid 2px black;
+    border-bottom: solid 1px grey;
+    border-top: solid 1px grey;
 }
 
 .abilities-section h2 {
@@ -13,4 +14,8 @@
     gap: 12px;
     justify-content: center;
     margin-bottom: 2rem;
+}
+
+.abilities-wrapper a {
+    text-transform: capitalize;
 }

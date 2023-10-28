@@ -13,7 +13,7 @@ const Types = props => {
     return (
         <div className={classes["types-container"]}>
             <div className={classes["types-wrapper"]}>
-            <span>Types: </span> {generatetTypes}
+             {generatetTypes}
             </div>
         </div>
     )

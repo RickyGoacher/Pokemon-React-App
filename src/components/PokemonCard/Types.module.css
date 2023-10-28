@@ -8,6 +8,7 @@
 
 .types-wrapper span {
     padding: .5rem;
+    border-radius: 2px;
     color: white;
     text-transform: capitalize;
     background-color: #284B63;

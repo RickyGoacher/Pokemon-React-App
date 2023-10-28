@@ -2,6 +2,7 @@ import classes from "./PokemonCard.module.css";
 import {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 
+import HeroImage from "./HeroImage";
 import Abilities from "./Abilities";
 import Sprites from "./Sprites";
 import Moves from "./Moves";
@@ -39,7 +40,7 @@ const PokemonCard = (props) => {
         currentPokemon = getPokemon;
         monSprites = currentPokemon["sprites"];
     
-        artwork = currentPokemon["sprites"]["other"]["official-artwork"]["front_default"]
+        artwork = currentPokemon["sprites"]["other"]["official-artwork"]
         artworkShiny = currentPokemon["sprites"]["other"]["official-artwork"]["front_shiny"]
         abilitiesList = currentPokemon["abilities"];
         monMoves = currentPokemon["moves"];
@@ -50,18 +51,24 @@ const PokemonCard = (props) => {
 
     return (
         <div>
-            <div className={classes["main-title"]}>
-                <h1>{id}</h1>
-                <Types types={monTypes}/>
+            <div className={classes["hero-section"]}>
+                <div className={classes["artwork-section"]}>
+                    
+                    <HeroImage images={artwork} />
+                </div>
+                <div className={classes["text-section"]}>
+                    <div className={classes["main-title"]}>
+                        <h1>{id}</h1>
+                        <Types types={monTypes}/>
+                    </div>
+                    <Abilities abilities={abilitiesList} />
+                    <Stats stats={monStats} />
+                </div>
             </div>
-            <div className={classes["artwork-section"]}>
-                <img src={artwork} alt="" />
-                <img src={artworkShiny} alt=""/>
-            </div>
-            <Stats stats={monStats} />
-            <Abilities abilities={abilitiesList} />
+        
             <Sprites sprites={monSprites} />
             <Moves moves={monMoves} />
+            <img src={artworkShiny} alt=""/>
         </div>
     )
 }

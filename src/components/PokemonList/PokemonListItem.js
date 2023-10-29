@@ -9,8 +9,15 @@ const PokemonListItem = (props) => {
 
     return (
         <div key={props.name} className={classes["list-item"]}>
-            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonNumber}.png`} alt={props.name} />
-            <Link to={`/Pokemon-React-App/pokemon/${props.name}`}>{props.name}</Link>
+            <Link to={`/Pokemon-React-App/pokemon/${props.name}`}>
+                <div className={classes["image-wrapper"]}>
+                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonNumber}.png`} alt={props.name} />
+                </div>
+                <div className={classes["pokemon-divider"]}></div>
+                <div className={classes["text-wrapper"]}>
+                    <Link to={`/Pokemon-React-App/pokemon/${props.name}`}>{props.name}</Link>
+                </div>
+            </Link>
         </div> 
     )
 }

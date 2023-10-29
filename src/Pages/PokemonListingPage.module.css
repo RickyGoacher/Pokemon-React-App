@@ -4,6 +4,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 12px;
 }
 
 .button-container {
@@ -14,7 +15,23 @@
 }
 
 .button-container button {
-    padding: 1rem 2rem;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1rem 2rem 1rem 2rem;
     color: white;
-    background-color: #284B63;
+    border: solid 4px black;
+    border-radius: 4px;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.button-container button img {
+    background-color: white;
+    border-radius: 50%;
+    height: 60px;
+    border: solid 4px black;
 }

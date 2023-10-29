@@ -65,8 +65,8 @@ const PokemonListingPage = (props) => {
        <div className={classes["pokemon-list-container"]}>
        {pokemonList}
        <div className={classes["button-container"]}>
-        <button onClick={getPrevious}>Prev</button>
-        <button onClick={getNext}>Next</button>
+        <button onClick={getPrevious}>Prev<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/312.png" alt=""/></button>
+        <button onClick={getNext}><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/311.png" alt=""/> Next</button>
        </div>
        </div> 
     )

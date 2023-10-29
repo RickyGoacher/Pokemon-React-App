@@ -6,7 +6,7 @@ const Header = () => {
         <header className={classes["header"]}>
             <nav>
                 <ul>
-                    <li><Link to={`/`}>Pokedex</Link></li>
+                    <li><Link to={`/Pokemon-React-App/`}>Pokedex</Link></li>
                 </ul>
             </nav>
         </header>

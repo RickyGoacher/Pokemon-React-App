@@ -50,14 +50,14 @@ const PokemonListingPage = (props) => {
     function getPrevious() {
         if(getPokemon["previous"] !== null) {
             setCurrentPage(getPokemon["previous"]);
-            navigate(`/page/${pageNumber - 1}`);
+            navigate(`/Pokemon-React-App/page/${pageNumber - 1}`);
         }
     }
 
     function getNext() {
         if(getPokemon["next"] !== null) {
             setCurrentPage(getPokemon["next"]);
-            navigate(`/page/${pageNumber + 1}`);
+            navigate(`Pokemon-React-App//page/${pageNumber + 1}`);
         }
     }
 

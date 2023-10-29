@@ -10,9 +10,9 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<PokemonListingPage />} />
-        <Route path="/page/:num" element={<PokemonListingPage />} />
-        <Route path="/pokemon/:id" element={<PokemonDisplayPage />} />
+        <Route path="/Pokemon-React-App/" element={<PokemonListingPage />} />
+        <Route path="/Pokemon-React-App/page/:num" element={<PokemonListingPage />} />
+        <Route path="/Pokemon-React-App/pokemon/:id" element={<PokemonDisplayPage />} />
         <Route path="*" element={<FourZeroFour />} />
       </Routes>
     </div>

@@ -1,5 +1,4 @@
 .list-item {
-    width: calc(25% - 8px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,4 +7,16 @@
 
 .list-item a {
     text-transform: capitalize;
+}
+
+@media screen and (min-width: 768px) {
+    .list-item {
+        width: calc(25% - 8px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .list-item {
+        width: calc(100% - 8px);
+    }
 }

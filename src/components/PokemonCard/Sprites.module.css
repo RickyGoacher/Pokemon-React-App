@@ -1,6 +1,7 @@
 .sprite-section {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     border-top: solid 1px grey;
     margin-top: 1rem;

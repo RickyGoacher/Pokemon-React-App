@@ -18,3 +18,7 @@
     width: 100px;
     height: 100px;
 }
+
+.hero-image img {
+    width: 100%;
+}

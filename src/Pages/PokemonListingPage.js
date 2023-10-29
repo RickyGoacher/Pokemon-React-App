@@ -57,7 +57,7 @@ const PokemonListingPage = (props) => {
     function getNext() {
         if(getPokemon["next"] !== null) {
             setCurrentPage(getPokemon["next"]);
-            navigate(`Pokemon-React-App//page/${pageNumber + 1}`);
+            navigate(`/Pokemon-React-App/page/${pageNumber + 1}`);
         }
     }
 

@@ -27,4 +27,40 @@
     background-color: #284B63;
     color: white;
     border: solid 1px white;
+    cursor: pointer;
+}
+
+.moves-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.moves-popup .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #0505056b;
+}
+
+.moves-popup.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    color: black;
+    position: absolute;
+    top: 50px;
+    z-index: 10;
+    right: 50px;
+    background-color: white;
+    padding: 1rem;
+    cursor: pointer;
 }

@@ -1,0 +1,15 @@
+.popup-wrapper {
+    min-width: 500px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    padding: 1rem;
+    text-transform: capitalize;
+}
+
+.popup-wrapper h3 {
+    text-transform: capitalize;
+}

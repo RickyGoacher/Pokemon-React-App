@@ -3,6 +3,8 @@
     height: 100px;
     background-color: #ff1f1f;
     display: flex;
+    flex-direction: column;
+    gap: 4px;
     align-items: center;
     justify-content: center;
     margin-bottom: 1rem;

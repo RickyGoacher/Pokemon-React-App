@@ -23,7 +23,7 @@ const Search = props => {
     },[])
 
     const getPokemon = (event) => {
-        let enteredVal = event.target.value;
+        let enteredVal = event.target.value.toLowerCase();
         setSearchResult(getPokemonResult.filter((item) => {
             return item["name"].includes(enteredVal);
         }))

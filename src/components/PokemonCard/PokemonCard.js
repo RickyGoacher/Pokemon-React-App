@@ -8,6 +8,7 @@ import Sprites from "./Sprites";
 import Moves from "./Moves";
 import Stats from "./Stats";
 import Types from "./Types";
+import PokemonSpecies from "./PokemonSpecies";
 
 const PokemonCard = () => {
 
@@ -38,7 +39,7 @@ const PokemonCard = () => {
       if(hasResultReturned) {
         currentPokemon = getPokemon;
         monSprites = currentPokemon["sprites"];
-        artwork = currentPokemon["sprites"]["other"]["official-artwork"];
+        artwork = currentPokemon["sprites"];
         abilitiesList = currentPokemon["abilities"];
         monMoves = currentPokemon["moves"];
         monStats = currentPokemon["stats"];
@@ -61,7 +62,7 @@ const PokemonCard = () => {
                     <Stats stats={monStats} />
                 </div>
             </div>
-        
+            <PokemonSpecies id={id}/>
             <Sprites sprites={monSprites} />
             <Moves moves={monMoves} />
         </div>

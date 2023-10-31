@@ -2,21 +2,38 @@
     position: relative;
 }
 
-.image:not(.active) {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 10px;
-    right: 10px;
+.main-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-image img {
+    max-width: 350px;
+    max-height: 350px;
+}
+
+.hero-image-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.image {
+    width: 80px;
+    height: 80px;
     border: solid 1px grey;
     border-radius: 2px;
     cursor: pointer;
     background-color: white;
 }
 
-.image:not(.active) img {
-    width: 100px;
-    height: 100px;
+.image img {
+    width: 80px;
+    height: 80px;
 }
 
 .hero-image img {

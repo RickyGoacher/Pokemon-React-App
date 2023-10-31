@@ -14,8 +14,6 @@ const Stats = props => {
 
     return (
         <div className={classes["stats-container"]}>
-            <h2>Base Stats</h2>
-
             <div className={classes["stats-wrapper"]}>
                 {generateStats}
             </div>

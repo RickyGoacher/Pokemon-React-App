@@ -1,0 +1,50 @@
+.flavor-text-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    padding: 2rem;
+    border-top: solid 1px grey;
+}
+
+.flavor-text-wrapper {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.flavor-text-wrapper div {
+    padding: 1rem;
+    text-transform: capitalize;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.flavor-text-wrapper div {
+    background-color: white;
+    color: red;
+}
+
+.flavor-text-wrapper:nth-child(odd) div {
+    background-color: red;
+    color: white
+}
+
+.text {
+    flex-grow: 1;
+}
+
+.view-more-button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    background-color: white;
+    color: black;
+    border: solid 4px black;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.view-more-button:hover {
+    background-color: red;
+    color: white;
+}

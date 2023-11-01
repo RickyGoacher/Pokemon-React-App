@@ -17,8 +17,7 @@ const PokemonSpecies = (props) => {
           setHasResultReturned(true);
          
         }).catch(error => {
-          console.error(error)
-          
+          console.error(error);
         });
     
       }, [id]);
@@ -47,13 +46,11 @@ const PokemonSpecies = (props) => {
     }
 
     const toggleViewMore = (event) => {
-        console.log(getPokemonSpecies["flavor_text_entries"].length,"limit")
         if(event.target.innerText === "View More") {
             setNumLimit(getPokemonSpecies["flavor_text_entries"].length);
         } else {
             setNumLimit(1);
         }
-        console.log(event.target.innerText, 'event target')
     }
 
     return (

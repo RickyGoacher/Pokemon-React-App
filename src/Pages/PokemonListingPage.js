@@ -9,8 +9,6 @@ const PokemonListingPage = (props) => {
 
     const { num } = useParams(0);
 
-    console.log(props, 'the props')
-
     const [getCurrentPage, setCurrentPage] = useState(`https://pokeapi.co/api/v2/pokemon?offset=${20*num}&limit=20`);
 
     const [getBaseUrl, setBaseUrl] = useState("/Pokemon-React-App/pokemon/page/");
@@ -60,13 +58,9 @@ const PokemonListingPage = (props) => {
 
     let pageNumber = getCurrentPage.match(/\d+(?=&)/g) / 20;
 
-    console.log(pageNumber, ' page number')
-
     const [getPokemon, setPokemon] = useState();
     const [hasResultReturned, setHasResultReturned] = useState(false);
     let pokemonList;
-    
-    console.log(hasResultReturned)
     
     if(hasResultReturned) {
         pokemonList = getPokemon["results"].map(pokemon => {
@@ -89,13 +83,13 @@ const PokemonListingPage = (props) => {
     }
 
     return (
-       <div className={classes["pokemon-list-container"]}>
-       {pokemonList}
-       <div className={classes["button-container"]}>
-        <button onClick={getPrevious}>Prev<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/312.png" alt=""/></button>
-        <button onClick={getNext}><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/311.png" alt=""/> Next</button>
-       </div>
-       </div> 
+        <div className={classes["pokemon-list-container"]}>
+            {pokemonList}
+            <div className={classes["button-container"]}>
+                <button onClick={getPrevious}>Prev<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/312.png" alt=""/></button>
+                <button onClick={getNext}><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/311.png" alt=""/> Next</button>
+            </div>
+        </div> 
     )
 }
 

@@ -3,8 +3,6 @@ import {useState, useEffect} from "react";
 
 const HeroImage = props => {
 
-    console.log(props, 'props')
-
     const [getActiveImage, setActiveImage] = useState("");
 
     let normalImage = "";

@@ -1,29 +1,33 @@
 .header {
     width: 100%;
-    height: 100px;
+    min-height: 100px;
     background-color: #ff1f1f;
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 1rem;
     position: relative;
     z-index: 1000;
     border-bottom: solid 4px black;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 .header ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    gap: 12px;
 }
 
 .header ul li a {
     color: white;
     text-decoration: none;
-    padding: 1rem;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .header-shape {

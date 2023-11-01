@@ -23,8 +23,6 @@ const PokemonSpecies = (props) => {
     
       }, [id]);
 
-    console.log(props, 'the id')
-
     console.log(getPokemonSpecies, 'pokemon species')
 
     let generateFlavourTextSection = [];
@@ -33,7 +31,7 @@ const PokemonSpecies = (props) => {
         generateFlavourTextSection = getPokemonSpecies["flavor_text_entries"].map((entry, i) => {
             if(entry["language"]["name"] === "en" && i <= getNumLimit) {
                 return (
-                    <div className={classes["flavor-text-wrapper"]}>
+                    <div key={entry["version"]["name"]} className={classes["flavor-text-wrapper"]}>
                         <div className={classes["version"]}>
                             {entry["version"]["name"]}
                         </div>
@@ -61,11 +59,16 @@ const PokemonSpecies = (props) => {
     return (
         <div>
             <div className={classes["flavor-text-container"]}>
+                {hasResultReturned && 
+                    <div className={classes["additional-info"]}>
+                        {getPokemonSpecies["base_happiness"] !== "" && <span><span>Base Happiness: </span> <span>{getPokemonSpecies["base_happiness"]}</span></span>}
+                        {getPokemonSpecies["capture_rate"] !== "" && <span><span>Capture Rate: </span> <span>{getPokemonSpecies["capture_rate"]}</span></span>}
+                        {getPokemonSpecies["hatch_counter"] !== "" && <span><span>Hatch Counter: </span> <span>{getPokemonSpecies["hatch_counter"]}</span></span>}
+                     </div>
+                }
                 {generateFlavourTextSection}
                 <button className={classes["view-more-button"]} onClick={toggleViewMore}>{getNumLimit === 1 ? "View More" : "View Less"}</button>
             </div>
-
-
         </div>
     );
 }

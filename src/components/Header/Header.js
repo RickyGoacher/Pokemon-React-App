@@ -8,6 +8,7 @@ const Header = () => {
             <nav>
                 <ul>
                     <li><Link to={`/Pokemon-React-App/`}>Pokedex</Link></li>
+                    <li><Link to={`/Pokemon-React-App/moves`}>Moves</Link></li>
                 </ul>
             </nav>
             <Search />

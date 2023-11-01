@@ -13,14 +13,11 @@ const Moves = props => {
         
         fetch(move).then(response => response.json())
         .then(data => {
-            console.log(data, 'move data');
             setSelectedMove(data);
         })
         .catch(error => {
             console.log(error);
         })
-        console.log(move)
-
     }
 
     const closeModal = () => {
@@ -41,7 +38,7 @@ const Moves = props => {
             </div>
             <div className={getSelectedMove !== "" ? classes["moves-popup"] + " " + classes.active : "" + classes["moves-popup"]}>
                 <span className={classes.close} onClick={closeModal}>Close</span>
-                <div className={classes.overlay}></div>
+                <div className={classes.overlay} onClick={closeModal}></div>
                 {getSelectedMove !== "" && <MovePopup move={getSelectedMove}/>}
             </div>
         </div>

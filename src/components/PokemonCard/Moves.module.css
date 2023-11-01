@@ -56,22 +56,30 @@
 .close {
     color: black;
     position: absolute;
-    top: 50px;
     z-index: 10;
-    right: 50px;
     background-color: white;
     padding: 1rem;
     cursor: pointer;
+    border: solid 2px black;
+    border-radius: 4px;
 }
 
 @media screen and (min-width: 768px) {
     .moves-wrapper span {
         width: 25%;
     }
+    .close {
+        top: 50px;
+        right: 50px;
+    }
 }
 
 @media screen and (max-width: 768px) {
     .moves-wrapper span {
         width: 50%;
+    }
+    .close {
+        top: 10px;
+        right: 10px;
     }
 }

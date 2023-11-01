@@ -16,7 +16,7 @@ const Abilities = props => {
                     <a href={currentAbility.ability.url}><span>{currentAbility.ability.name}</span></a>
                 </div>
             )
-        })
+        });
     }
 
     return (

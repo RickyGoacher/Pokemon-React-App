@@ -1,5 +1,4 @@
 .popup-wrapper {
-    min-width: 500px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -8,8 +7,39 @@
     z-index: 10;
     padding: 1rem;
     text-transform: capitalize;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: solid 2px black;
 }
 
 .popup-wrapper h3 {
     text-transform: capitalize;
+}
+
+.popup-wrapper > span {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: .5rem;
+}
+
+.popup-wrapper > span:nth-child(odd) {
+    background-color: white;
+    color: red;
+}
+
+@media screen and (min-width: 768px) {
+    .popup-wrapper {
+        min-width: 500px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .popup-wrapper {
+        min-width: 90%;
+    }
 }

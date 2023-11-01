@@ -1,11 +1,11 @@
 import classes from "./HeroImage.module.css";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 const HeroImage = props => {
 
     console.log(props, 'props')
 
-    const [getActiveImage, setActiveImage] = useState("")
+    const [getActiveImage, setActiveImage] = useState("");
 
     let normalImage = "";
     let shinyImage = "";
@@ -14,7 +14,6 @@ const HeroImage = props => {
     let shinyHome = "";
 
     if (props.images !== "") {
-        console.log(props.images, 'testing')
         normalImage = props["images"]["other"]["official-artwork"].front_default;
         shinyImage = props["images"].other["official-artwork"].front_shiny;
         dreamWorld = props["images"].other.dream_world.front_default;
@@ -22,9 +21,12 @@ const HeroImage = props => {
         shinyHome = props["images"].other.home.front_shiny;
     }
 
+    useEffect(() => {
+        setActiveImage(normalImage);
+    }, [props, normalImage])
+
     function toggleImage(event) {
-       setActiveImage(event.target.src) 
-       console.log(event.target.src)
+       setActiveImage(event.target.src);
     }
 
     return (

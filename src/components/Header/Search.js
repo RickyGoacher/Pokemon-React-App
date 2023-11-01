@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import classes from "./Search.module.css";
 import { Link } from "react-router-dom";
 
-const Search = props => {
+const Search = () => {
 
     const [getPokemonResult, setPokemonResult] = useState('');
 
@@ -15,7 +15,6 @@ const Search = props => {
         fetch(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=1292`).then(response => response.json())
         .then(data => {
           setPokemonResult(data["results"].reduce((r, a) => r.concat(a), []))
-          
         }).catch(error => {
           console.error(error)
         });
@@ -26,8 +25,7 @@ const Search = props => {
         let enteredVal = event.target.value.toLowerCase();
         setSearchResult(getPokemonResult.filter((item) => {
             return item["name"].includes(enteredVal);
-        }))
-        console.log(getSearchResult, 'gen results')
+        }));
     };
 
     const waitForClick = () => {

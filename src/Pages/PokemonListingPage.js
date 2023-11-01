@@ -9,7 +9,34 @@ const PokemonListingPage = (props) => {
 
     const { num } = useParams(0);
 
+    console.log(props, 'the props')
+
     const [getCurrentPage, setCurrentPage] = useState(`https://pokeapi.co/api/v2/pokemon?offset=${20*num}&limit=20`);
+
+    const [getBaseUrl, setBaseUrl] = useState("/Pokemon-React-App/pokemon/page/");
+
+    useEffect(() => {
+        if(props["routeType"] === "pokemon") {
+            setCurrentPage(`https://pokeapi.co/api/v2/pokemon?offset=${20*num}&limit=20`);
+            setBaseUrl("/Pokemon-React-App/pokemon/");
+        }
+
+        if(props["routeType"] === "moves") {
+            setCurrentPage(`https://pokeapi.co/api/v2/move/?&offset=${20*num}&limit=20`);
+            setBaseUrl("/Pokemon-React-App/moves/");
+        }
+
+        if(props["routeType"] === "berries") {
+            setCurrentPage(`https://pokeapi.co/api/v2/berry/?&offset=${20*num}&limit=20`);
+            setBaseUrl("/Pokemon-React-App/berries/");
+        }
+
+        if(props["routeType"] === "abilities") {
+            setCurrentPage(`https://pokeapi.co/api/v2/ability/?&offset=${20*num}&limit=20`);
+            setBaseUrl("/Pokemon-React-App/abilities/");
+        }
+    
+    }, [props, num, setBaseUrl])
 
     useEffect(() => {
 
@@ -43,21 +70,21 @@ const PokemonListingPage = (props) => {
     
     if(hasResultReturned) {
         pokemonList = getPokemon["results"].map(pokemon => {
-            return <PokemonListItem name={pokemon.name} url={pokemon.url} />
+            return <PokemonListItem key={pokemon.name} name={pokemon.name} url={pokemon.url} baseUrl={getBaseUrl}/>
         });
     }
 
     function getPrevious() {
         if(getPokemon["previous"] !== null) {
             setCurrentPage(getPokemon["previous"]);
-            navigate(`/Pokemon-React-App/page/${pageNumber - 1}`);
+            navigate(`${getBaseUrl}page/${pageNumber - 1}`);
         }
     }
 
     function getNext() {
         if(getPokemon["next"] !== null) {
             setCurrentPage(getPokemon["next"]);
-            navigate(`/Pokemon-React-App/page/${pageNumber + 1}`);
+            navigate(`${getBaseUrl}page/${pageNumber + 1}`);
         }
     }
 

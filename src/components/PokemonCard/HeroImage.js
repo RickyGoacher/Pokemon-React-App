@@ -1,55 +1,25 @@
-import classes from "./HeroImage.module.css";
-import {useState, useEffect} from "react";
+import HeroCarousel from "../../UI/HeroCarousel";
 
 const HeroImage = props => {
 
-    const [getActiveImage, setActiveImage] = useState("");
+    const Images = props["images"];
 
-    let normalImage = "";
-    let shinyImage = "";
-    let dreamWorld = "";
-    let normalHome = "";
-    let shinyHome = "";
-
-    if (props.images !== "") {
-        normalImage = props["images"]["other"]["official-artwork"].front_default;
-        shinyImage = props["images"].other["official-artwork"].front_shiny;
-        dreamWorld = props["images"].other.dream_world.front_default;
-        normalHome = props["images"].other.home.front_default;
-        shinyHome = props["images"].other.home.front_shiny;
-    }
-
-    useEffect(() => {
-        setActiveImage(normalImage);
-    }, [props, normalImage])
-
-    function toggleImage(event) {
-       setActiveImage(event.target.src);
+    let HeroImages = [];
+    
+    if(Images !== "") {
+        HeroImages = [
+            Images["other"]["official-artwork"].front_default,
+            Images["other"]["official-artwork"].front_shiny,
+            Images["other"].dream_world.front_default,
+            Images["other"].home.front_default,
+            Images["other"].home.front_shiny
+        ];
     }
 
     return (
-        <div className={classes["hero-image"]}>
-            <div className={classes["main-image"]} onClick={toggleImage}>
-                {normalImage !== "" && <img src={getActiveImage !== "" ? getActiveImage : normalImage } id="normal" alt=""/>}
-            </div>
-            <div className={classes["hero-image-list"]}>
-                <div className={getActiveImage === "normal" ? "active" : "" + classes["image"]} onClick={toggleImage}>
-                    {normalImage !== "" && <img src={normalImage} id="normal" alt=""/>}
-                </div>
-                <div className={getActiveImage === "shiny" ? "active" : "" + classes["image"]} onClick={toggleImage}>
-                    {shinyImage !== "" && <img src={shinyImage} id="shiny" alt=""/>}
-                </div>
-                <div className={getActiveImage === "dream" ? "active" : "" + classes["image"]} onClick={toggleImage}>
-                   { dreamWorld !== "" && <img src={dreamWorld} id="dream" alt=""/>}
-                </div>
-                <div className={getActiveImage === "normal-home" ? "active" : "" + classes["image"]} onClick={toggleImage}>
-                   { normalHome !== "" && <img src={normalHome} id="normal-home" alt=""/> }
-                </div>
-                <div className={getActiveImage === "shiny-home" ? "active" : "" + classes["image"]} onClick={toggleImage}>
-                   { shinyHome !== "" && <img src={shinyHome} id="shiny-home" alt=""/>}
-                </div>
-            </div>
-        </div>
+        <>
+            { HeroImages.length > 0 && <HeroCarousel images={HeroImages} /> }
+        </>
     )
 }
 

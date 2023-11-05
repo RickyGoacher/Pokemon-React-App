@@ -34,9 +34,9 @@ const PokemonCard = () => {
           setHasResultReturned(false);
         });
     
-      }, [id]);
+    }, [id]);
 
-      if(hasResultReturned) {
+    if(hasResultReturned) {
         currentPokemon = getPokemon;
         monSprites = currentPokemon["sprites"];
         artwork = currentPokemon["sprites"];
@@ -45,7 +45,7 @@ const PokemonCard = () => {
         monStats = currentPokemon["stats"];
         monTypes = currentPokemon["types"];
         console.log(currentPokemon, 'current mon')
-      }
+    }
 
     return (
         <div>
@@ -66,7 +66,7 @@ const PokemonCard = () => {
             <Sprites sprites={monSprites} />
             <Moves moves={monMoves} />
         </div>
-    )
+    );
 }
 
 export default PokemonCard;

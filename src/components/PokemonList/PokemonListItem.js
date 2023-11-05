@@ -19,7 +19,7 @@ const PokemonListItem = (props) => {
                 </div>
             </Link>
         </div> 
-    )
+    );
 }
 
 export default PokemonListItem;

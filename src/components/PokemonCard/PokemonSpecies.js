@@ -6,8 +6,8 @@ const PokemonSpecies = (props) => {
 
     const [getPokemonSpecies, setPokemonSpecies] = useState('');
     const [hasResultReturned, setHasResultReturned] = useState(false);
-
     const id = props.id;
+    let flavorTextEN = [];
 
     useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`).then(response => response.json())
@@ -19,13 +19,9 @@ const PokemonSpecies = (props) => {
         }).catch(error => {
           console.error(error);
         });
-    
-      }, [id]);
+    }, [id]);
 
     console.log(getPokemonSpecies, 'pokemon species')
-
-    let flavorTextEN = [];
-
     if(hasResultReturned) {
         flavorTextEN = getPokemonSpecies["flavor_text_entries"].filter((item) => {
             return item["language"]["name"] === "en";

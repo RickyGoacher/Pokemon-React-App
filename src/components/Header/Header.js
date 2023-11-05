@@ -13,7 +13,7 @@ const Header = () => {
             </nav>
             <Search />
         </header>
-    )
+    );
 }
 
 export default Header;

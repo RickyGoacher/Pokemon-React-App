@@ -5,21 +5,17 @@ import { Link } from "react-router-dom";
 const Search = () => {
 
     const [getPokemonResult, setPokemonResult] = useState('');
-
     const [getSearchResult, setSearchResult] = useState([]);
-
     const [getInputFocus, setInputFocus] = useState(false);
 
     useEffect(() => {
-
         fetch(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=1292`).then(response => response.json())
         .then(data => {
           setPokemonResult(data["results"].reduce((r, a) => r.concat(a), []))
         }).catch(error => {
           console.error(error)
         });
-
-    },[])
+    },[]);
 
     const getPokemon = (event) => {
         let enteredVal = event.target.value.toLowerCase();
@@ -31,7 +27,7 @@ const Search = () => {
     const waitForClick = () => {
         setTimeout(() => {
             setInputFocus(false)
-        }, 300)
+        }, 300);
     }
 
     const searchResult = getSearchResult.map(result => {
@@ -39,7 +35,7 @@ const Search = () => {
             <div key={result["name"]} className={classes["result-item"]} onClick={waitForClick}>
                 <Link to={`/Pokemon-React-App/pokemon/${result["name"]}`}>{result["name"]}</Link>
             </div>
-        )
+        );
     });
 
     const onFocus = () => {
@@ -49,7 +45,6 @@ const Search = () => {
     return (
         <>
         <div className={getInputFocus ? classes.overlay + " " + classes.active : "" + classes.overlay} onClick={waitForClick}></div>
-
         <div className={classes["search-container"]}>
             <input type="text" placeholder="Search Pokemon..." onChange={getPokemon} onFocus={onFocus}/>
             {(getSearchResult.length > 0) && <div onClick={waitForClick} className={getInputFocus ? classes["search-results"] + " " + classes.active : "" + classes["search-results"]}>

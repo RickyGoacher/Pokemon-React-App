@@ -14,7 +14,6 @@ const Sprites = props => {
         }
     });
 
-
     return (
         <div className={classes["sprite-section"]}>
             {generateSprites}

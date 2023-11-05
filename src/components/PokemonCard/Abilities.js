@@ -8,6 +8,8 @@ const Abilities = props => {
 
     const abilityList = props["abilities"];
 
+    let ModalContent = [];
+
     const fetchSelectedAbility = (ability) => {
         
         fetch(ability).then(response => response.json())
@@ -33,8 +35,6 @@ const Abilities = props => {
             );
         });
     }
-
-    let ModalContent = [];
 
     if(getSelectedAbility !== "") {
         ModalContent = [

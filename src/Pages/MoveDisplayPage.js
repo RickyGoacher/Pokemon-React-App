@@ -5,7 +5,7 @@ const MoveDisplayPage = () => {
         <>
         <MoveCard />
         </>
-    )
+    );
 }
 
 export default MoveDisplayPage;

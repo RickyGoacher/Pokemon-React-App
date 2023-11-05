@@ -7,7 +7,6 @@
     flex-wrap: wrap;
     gap: 12px;
     align-items: center;
-    justify-content: space-between;
     margin-bottom: 1rem;
     position: relative;
     z-index: 1000;
@@ -37,4 +36,16 @@
     height: 0px;
     width: 0px;
     z-index: -1;
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        justify-content: center;
+    }
 }

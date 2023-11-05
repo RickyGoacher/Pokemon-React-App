@@ -8,8 +8,6 @@ const PokemonListingPage = (props) => {
 
     const BaseURL = useContext(BaseUrl);
 
-    console.log(BaseURL, 'Base URL')
-
     const navigate = useNavigate();
 
     const { num } = useParams(0);
@@ -26,7 +24,7 @@ const PokemonListingPage = (props) => {
 
         if(props["routeType"] === "moves") {
             setCurrentPage(`https://pokeapi.co/api/v2/move/?&offset=${20*num}&limit=20`);
-            setBaseUrl(`${BaseURL}moves`);
+            setBaseUrl(`${BaseURL}moves/`);
         }
 
         if(props["routeType"] === "berries") {
@@ -62,7 +60,6 @@ const PokemonListingPage = (props) => {
     }, [getCurrentPage, num]);
 
     let pageNumber = getCurrentPage.match(/\d+(?=&)/g) / 20;
-
     const [getPokemon, setPokemon] = useState();
     const [hasResultReturned, setHasResultReturned] = useState(false);
     let pokemonList;
@@ -77,6 +74,7 @@ const PokemonListingPage = (props) => {
         if(getPokemon["previous"] !== null) {
             setCurrentPage(getPokemon["previous"]);
             navigate(`${getBaseUrl}page/${pageNumber - 1}`);
+            window.scrollTo(0, 0);
         }
     }
 
@@ -84,6 +82,7 @@ const PokemonListingPage = (props) => {
         if(getPokemon["next"] !== null) {
             setCurrentPage(getPokemon["next"]);
             navigate(`${getBaseUrl}page/${pageNumber + 1}`);
+            window.scrollTo(0, 0);
         }
     }
 
@@ -95,7 +94,7 @@ const PokemonListingPage = (props) => {
                 <button onClick={getNext}><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/311.png" alt=""/> Next</button>
             </div>
         </div> 
-    )
+    );
 }
 
 export default PokemonListingPage;

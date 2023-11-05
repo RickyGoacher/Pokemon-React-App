@@ -1,3 +1,27 @@
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.popup .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #0505056b;
+}
+
+.popup.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .popup-wrapper {
     background-color: white;
     display: flex;
@@ -31,14 +55,32 @@
     color: red;
 }
 
+.close {
+    color: black;
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    padding: 1rem;
+    cursor: pointer;
+    border: solid 2px black;
+    border-radius: 4px;
+}
+
 @media screen and (min-width: 768px) {
+    .close {
+        top: 50px;
+        right: 50px;
+    }
     .popup-wrapper {
         min-width: 500px;
     }
-
 }
 
 @media screen and (max-width: 768px) {
+    .close {
+        top: 10px;
+        right: 10px;
+    }
     .popup-wrapper {
         min-width: 90%;
     }

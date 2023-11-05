@@ -1,6 +1,5 @@
 import {useState} from "react";
-import MovePopup from "./MovePopup";
-
+import Modal from "../../UI/Modal";
 import classes from "./Moves.module.css";
 
 const Moves = props => {
@@ -8,6 +7,8 @@ const Moves = props => {
     const moveList = props.moves;
 
     const [getSelectedMove, setSelectedMove] = useState("");
+
+    let ModalContent = "";
 
     const fetchSelectedMove = (move) => {
         
@@ -20,15 +21,22 @@ const Moves = props => {
         })
     }
 
-    const closeModal = () => {
-        setSelectedMove("");
-    }
-
     const generateMoves = moveList.map(currentMove => {
         return (
             <span key={currentMove.move.name} onClick={() => {fetchSelectedMove(currentMove.move.url)}}>{currentMove.move.name}</span>
         )
-    })
+    });
+
+    if(getSelectedMove !== "") {
+        ModalContent = [
+            {"title": "Name", "value": getSelectedMove["name"]},
+            {"title": "Accuracy", "value": getSelectedMove["accuracy"]},
+            {"title": "Power", "value": getSelectedMove["power"]},
+            {"title": "PP", "value": getSelectedMove["pp"]},
+            {"title": "Priority", "value": getSelectedMove["priority"]},
+            {"title": "Target", "value": getSelectedMove["target"]["name"]}
+        ];
+    }
 
     return (
         <div className={classes["moves-section"]}>
@@ -36,13 +44,9 @@ const Moves = props => {
             <div className={classes["moves-wrapper"]}>
                 {generateMoves}
             </div>
-            <div className={getSelectedMove !== "" ? classes["moves-popup"] + " " + classes.active : "" + classes["moves-popup"]}>
-                <span className={classes.close} onClick={closeModal}>Close</span>
-                <div className={classes.overlay} onClick={closeModal}></div>
-                {getSelectedMove !== "" && <MovePopup move={getSelectedMove}/>}
-            </div>
+            {getSelectedMove !== "" && <Modal content={ModalContent} />}
         </div>
-    )
+    );
 }
 
 export default Moves;

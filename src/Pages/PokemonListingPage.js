@@ -1,9 +1,14 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
 import classes from "./PokemonListingPage.module.css";
 import { useParams, useNavigate } from "react-router-dom";
 import PokemonListItem from "../Components/PokemonList/PokemonListItem";
+import {BaseUrl} from '../App';
 
 const PokemonListingPage = (props) => {
+
+    const BaseURL = useContext(BaseUrl);
+
+    console.log(BaseURL, 'Base URL')
 
     const navigate = useNavigate();
 
@@ -11,30 +16,30 @@ const PokemonListingPage = (props) => {
 
     const [getCurrentPage, setCurrentPage] = useState(`https://pokeapi.co/api/v2/pokemon?offset=${20*num}&limit=20`);
 
-    const [getBaseUrl, setBaseUrl] = useState("/Pokemon-React-App/pokemon/page/");
+    const [getBaseUrl, setBaseUrl] = useState(`${BaseURL}pokemon/page/`);
 
     useEffect(() => {
         if(props["routeType"] === "pokemon") {
             setCurrentPage(`https://pokeapi.co/api/v2/pokemon?offset=${20*num}&limit=20`);
-            setBaseUrl("/Pokemon-React-App/pokemon/");
+            setBaseUrl(`${BaseURL}pokemon/`);
         }
 
         if(props["routeType"] === "moves") {
             setCurrentPage(`https://pokeapi.co/api/v2/move/?&offset=${20*num}&limit=20`);
-            setBaseUrl("/Pokemon-React-App/moves/");
+            setBaseUrl(`${BaseURL}moves`);
         }
 
         if(props["routeType"] === "berries") {
             setCurrentPage(`https://pokeapi.co/api/v2/berry/?&offset=${20*num}&limit=20`);
-            setBaseUrl("/Pokemon-React-App/berries/");
+            setBaseUrl(`${BaseURL}berries/`);
         }
 
         if(props["routeType"] === "abilities") {
             setCurrentPage(`https://pokeapi.co/api/v2/ability/?&offset=${20*num}&limit=20`);
-            setBaseUrl("/Pokemon-React-App/abilities/");
+            setBaseUrl(`${BaseURL}abilities/`);
         }
     
-    }, [props, num, setBaseUrl])
+    }, [props, num, setBaseUrl, BaseURL])
 
     useEffect(() => {
 

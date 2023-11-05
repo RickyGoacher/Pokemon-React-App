@@ -1,9 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
+import { createContext } from 'react';
 import Header from './Components/Header/Header';
 import PokemonListingPage from "./Pages/PokemonListingPage";
 import PokemonDisplayPage from "./Pages/PokemonDisplayPage";
 import FourZeroFour from './Pages/404';
 import MoveDisplayPage from './Pages/MoveDisplayPage';
+
+
+export const BaseUrl = createContext("/Pokemon-React-App/");
 
 function App() {
 

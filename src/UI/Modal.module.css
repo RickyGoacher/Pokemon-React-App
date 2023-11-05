@@ -5,6 +5,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 1000;
 }
 
 .popup .overlay {
@@ -50,6 +51,10 @@
     padding: .5rem;
 }
 
+.popup-wrapper > span > span:first-child {
+    margin-right: 12px;
+}
+
 .popup-wrapper > span:nth-child(odd) {
     background-color: white;
     color: red;
@@ -73,6 +78,7 @@
     }
     .popup-wrapper {
         min-width: 500px;
+        max-width: 500px;
     }
 }
 

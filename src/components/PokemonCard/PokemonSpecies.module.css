@@ -8,9 +8,22 @@
 
 .additional-info {
     display: flex;
-    justify-content: space-between;
     padding: .5rem 2rem;
     font-weight: bold;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+}
+
+@media screen and (min-width: 768px) {
+    .additional-info {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .additional-info {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
 }

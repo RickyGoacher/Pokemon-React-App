@@ -16,6 +16,11 @@
     margin-bottom: 2rem;
 }
 
-.abilities-wrapper a {
+.abilities-wrapper span {
     text-transform: capitalize;
+    cursor: pointer;
+}
+
+.abilities-wrapper span:last-child:hover {
+    text-decoration: underline;
 }

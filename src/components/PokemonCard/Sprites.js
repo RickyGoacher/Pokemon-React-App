@@ -8,7 +8,7 @@ const Sprites = props => {
         if (typeof sprite !== 'object') {
             return (
                 <img key={Math.random()} src={sprite} alt="" />
-            )
+            );
         } else {
             return '';
         }

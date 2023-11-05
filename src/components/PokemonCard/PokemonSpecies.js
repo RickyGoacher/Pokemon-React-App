@@ -1,11 +1,11 @@
 import {useState, useEffect} from "react";
 import classes from "./PokemonSpecies.module.css";
+import ReadMore from "../../UI/ReadMore";
 
 const PokemonSpecies = (props) => {
 
     const [getPokemonSpecies, setPokemonSpecies] = useState('');
     const [hasResultReturned, setHasResultReturned] = useState(false);
-    const [getNumLimit, setNumLimit] = useState(1);
 
     const id = props.id;
 
@@ -24,33 +24,19 @@ const PokemonSpecies = (props) => {
 
     console.log(getPokemonSpecies, 'pokemon species')
 
-    let generateFlavourTextSection = [];
+    let flavorTextEN = [];
 
     if(hasResultReturned) {
-        generateFlavourTextSection = getPokemonSpecies["flavor_text_entries"].map((entry, i) => {
-            if(entry["language"]["name"] === "en" && i <= getNumLimit) {
-                return (
-                    <div key={entry["version"]["name"]} className={classes["flavor-text-wrapper"]}>
-                        <div className={classes["version"]}>
-                            {entry["version"]["name"]}
-                        </div>
-                        <div className={classes["text"]}>
-                            {entry["flavor_text"]}
-                        </div>
-                    </div>
-                )
-            } else {
-                return '';
-            }
-        })
-    }
-
-    const toggleViewMore = (event) => {
-        if(event.target.innerText === "View More") {
-            setNumLimit(getPokemonSpecies["flavor_text_entries"].length);
-        } else {
-            setNumLimit(1);
-        }
+        flavorTextEN = getPokemonSpecies["flavor_text_entries"].filter((item) => {
+            return item["language"]["name"] === "en";
+        }).map((item) => {
+            return (
+                {
+                    title: item["version"]["name"],
+                    content: item["flavor_text"]
+                }
+            );
+        });
     }
 
     return (
@@ -61,10 +47,9 @@ const PokemonSpecies = (props) => {
                         {getPokemonSpecies["base_happiness"] !== "" && <span><span>Base Happiness: </span> <span>{getPokemonSpecies["base_happiness"]}</span></span>}
                         {getPokemonSpecies["capture_rate"] !== "" && <span><span>Capture Rate: </span> <span>{getPokemonSpecies["capture_rate"]}</span></span>}
                         {getPokemonSpecies["hatch_counter"] !== "" && <span><span>Hatch Counter: </span> <span>{getPokemonSpecies["hatch_counter"]}</span></span>}
-                     </div>
+                    </div>
                 }
-                {generateFlavourTextSection}
-                <button className={classes["view-more-button"]} onClick={toggleViewMore}>{getNumLimit === 1 ? "View More" : "View Less"}</button>
+                {hasResultReturned && <ReadMore content={flavorTextEN}/> }
             </div>
         </div>
     );

@@ -8,15 +8,15 @@ const Types = props => {
         return (
             <span key={currentType["type"]["name"]} className={classes[currentType["type"]["name"]]}>{currentType["type"]["name"]}</span>
         )
-    })
+    });
 
     return (
         <div className={classes["types-container"]}>
             <div className={classes["types-wrapper"]}>
-             {generatetTypes}
+                {generatetTypes}
             </div>
         </div>
-    )
+    );
 }
 
 export default Types;

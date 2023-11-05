@@ -1,0 +1,43 @@
+.readmore-text-wrapper {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.readmore-text-wrapper div {
+    padding: 1rem;
+    text-transform: capitalize;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.readmore-text-wrapper div {
+    background-color: white;
+    color: red;
+}
+
+.readmore-text-wrapper:nth-child(odd) div {
+    background-color: red;
+    color: white
+}
+
+.text {
+    flex-grow: 1;
+}
+
+.view-more-button {
+    margin-top: 1rem;
+    padding: .5rem;
+    font-size: 1.2rem;
+    background-color: white;
+    color: black;
+    border: solid 2px black;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.view-more-button:hover {
+    background-color: red;
+    color: white;
+}

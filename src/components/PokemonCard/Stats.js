@@ -9,7 +9,7 @@ const Stats = props => {
             <div key={currentStat["stat"]["name"]} className={classes["stat"]}>
                 <span>{currentStat["stat"]["name"]}:</span><span> {currentStat["base_stat"]}</span>
             </div>
-        )
+        );
     })
 
     return (
@@ -18,7 +18,7 @@ const Stats = props => {
                 {generateStats}
             </div>
         </div>
-    )
+    );
 
 }
 

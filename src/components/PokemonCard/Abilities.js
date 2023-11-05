@@ -7,7 +7,6 @@ const Abilities = props => {
     let generateAbilities = [];
 
     if(abilityList.length) {
-
         generateAbilities = props["abilities"].map(currentAbility => {
             return (
                 <div key={currentAbility.ability.name}>
@@ -15,7 +14,7 @@ const Abilities = props => {
                     {!currentAbility.is_hidden && <span>Ability: </span>}
                     <a href={currentAbility.ability.url}><span>{currentAbility.ability.name}</span></a>
                 </div>
-            )
+            );
         });
     }
 
@@ -26,7 +25,7 @@ const Abilities = props => {
                 {generateAbilities}
             </div>
         </div>
-    )
+    );
 }
 
 export default Abilities;

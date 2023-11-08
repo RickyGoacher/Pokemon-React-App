@@ -5,7 +5,7 @@ import PokemonListingPage from "./Pages/PokemonListingPage";
 import PokemonDisplayPage from "./Pages/PokemonDisplayPage";
 import FourZeroFour from './Pages/404';
 import MoveDisplayPage from './Pages/MoveDisplayPage';
-
+import Footer from './Components/Footer/Footer';
 
 export const BaseUrl = createContext("/Pokemon-React-App/");
 
@@ -28,6 +28,7 @@ function App() {
         <Route path="/Pokemon-React-App/moves/:id" element={<MoveDisplayPage />} />
         <Route path="*" element={<FourZeroFour />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

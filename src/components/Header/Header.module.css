@@ -13,6 +13,7 @@
     border-bottom: solid 4px black;
     padding: 1rem;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .header ul {
@@ -36,6 +37,26 @@
     height: 0px;
     width: 0px;
     z-index: -1;
+}
+
+.background {
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+    height: 110px;
+    width: 100%;
+}
+
+.logo {
+    position: relative;
+    width: 150px;
+    height: 60px;
+}
+
+.header nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 @media screen and (min-width: 768px) {

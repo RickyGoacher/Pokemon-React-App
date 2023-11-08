@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/Pokemon-React-App/static/css/main.5debfdee.css",
-    "main.js": "/Pokemon-React-App/static/js/main.a12591ca.js",
+    "main.css": "/Pokemon-React-App/static/css/main.4a674138.css",
+    "main.js": "/Pokemon-React-App/static/js/main.60c07002.js",
     "static/js/787.94292652.chunk.js": "/Pokemon-React-App/static/js/787.94292652.chunk.js",
+    "static/media/International_Pokémon_logo.svg": "/Pokemon-React-App/static/media/International_Pokémon_logo.6e5ab9f5216c89a77a0ee0b8a7641eb2.svg",
+    "static/media/pokeballs.svg": "/Pokemon-React-App/static/media/pokeballs.aa23a826e92242bab8ff5658dc9063b5.svg",
     "index.html": "/Pokemon-React-App/index.html",
-    "main.5debfdee.css.map": "/Pokemon-React-App/static/css/main.5debfdee.css.map",
-    "main.a12591ca.js.map": "/Pokemon-React-App/static/js/main.a12591ca.js.map",
+    "main.4a674138.css.map": "/Pokemon-React-App/static/css/main.4a674138.css.map",
+    "main.60c07002.js.map": "/Pokemon-React-App/static/js/main.60c07002.js.map",
     "787.94292652.chunk.js.map": "/Pokemon-React-App/static/js/787.94292652.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5debfdee.css",
-    "static/js/main.a12591ca.js"
+    "static/css/main.4a674138.css",
+    "static/js/main.60c07002.js"
   ]
 }
